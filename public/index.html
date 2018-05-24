@@ -18,11 +18,11 @@
   </head>
   <body>
 
-    <!--
+    
     <header class="container page-header">
-      <h1>Список дел</h1>
+      <!-- <h1>Список дел</h1> --> 
     </header>
-  -->
+  
 
     <div class="container" id="app">
       <div class="row">
@@ -47,8 +47,8 @@
         <small>
           <i class="fa fa-fw fa-bar-chart"></i>
           <span v-show="!remainingTasks && completedTasks">Нет задач</span>
-          <span v-show="remainingTasks">{{ remainingTasks }} задач<span v-show="remainingTasks > 1 || remainingTasks === 0">s</span></span>
-          <span v-show="totalTasks > 1 && totalTasks > remainingTasks"> of {{ totalTasks }} Всего задач<span v-show="totalTasks > 1 || totalTasks === 0">s</span></span>
+          <span v-show="remainingTasks">{{ remainingTasks }} задач в работе<span v-show="remainingTasks > 1 || remainingTasks === 0"></span></span>
+          <span v-show="totalTasks > 1 && totalTasks > remainingTasks"> из {{ totalTasks }}<span v-show="totalTasks > 1 || totalTasks === 0"></span></span>
           <span v-show="!remainingTasks && !completedTasks">Нет задач в списке</span>
           <span v-show="completedTasks"> | <a class="text-warning" href="#" @click.prevent="clearCompleted"><i class="fa fa-fw fa-times"></i>Удалить выполненные из списка</a></span>
           <!-- <a class="text-danger pull-right" href="#" @click.prevent="resetApp">Reset to Default Demo Data<i class="fa fa-fw fa-refresh"></i></a> -->
@@ -69,9 +69,9 @@
               <div class="col-sm-12">
                 <small class="priority-meta text-muted">
                   Priority:
-                  <span @click="togglePriority( todo, 3 )" :class="{ 'label label-default priority-label inactive': todo.priority !== 3 , 'label label-info priority-label': todo.priority === 3 }"><i class="fa fa-chevron-down"></i> Low</span>
-                  <span @click="togglePriority( todo, 2 )" :class="{ 'label label-default priority-label inactive': todo.priority !== 2 , 'label label-primary priority-label': todo.priority === 2 }">Normal</span>
-                  <span @click="togglePriority( todo, 1 )" :class="{ 'label label-default priority-label inactive': todo.priority !== 1 , 'label label-danger priority-label': todo.priority === 1 }">High <i class="fa fa-chevron-up"></i></span>
+                  <span @click="togglePriority( todo, 3 )" :class="{ 'label label-default priority-label inactive': todo.priority !== 3 , 'label label-info priority-label': todo.priority === 3 }"><i class="fa fa-chevron-down"></i> Не важно</span>
+                  <span @click="togglePriority( todo, 2 )" :class="{ 'label label-default priority-label inactive': todo.priority !== 2 , 'label label-primary priority-label': todo.priority === 2 }">Обычная</span>
+                  <span @click="togglePriority( todo, 1 )" :class="{ 'label label-default priority-label inactive': todo.priority !== 1 , 'label label-danger priority-label': todo.priority === 1 }">Важная <i class="fa fa-chevron-up"></i></span>
                   <span v-show="todo.created"><i class="fa fa-clock-o time-created"></i> Создано <span class="timeago" :datetime="todo.created">{{ todo.created | timeago }}</span></span>
                 </small>
               </div>
